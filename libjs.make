@@ -9,8 +9,6 @@
 # To use:
 # $ make -f libjs.make debug=(yes|no)
 
-include config.make
-
 LIBJS_SRC_DIR                    = js/src
 LIBJS_CONFIG_FLAGS               = --disable-shared-js
 LIBJS_CONFIG_FLAGS               += --enable-threadsafe
