@@ -28,4 +28,4 @@ Then:
 
 Then make:
 
-    make -f libjs.make -j16
+    make -f libjs.make -j$(nproc)
