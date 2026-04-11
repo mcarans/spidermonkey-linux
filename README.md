@@ -3,7 +3,7 @@
 Build:
 
     make -f libjs.make distclean
-    make -f libjs.make -j16
+    make -f libjs.make -j$(nproc)
 
 Output of build in js/src/build-release
 
