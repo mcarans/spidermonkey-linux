@@ -29,3 +29,7 @@ Then:
 Then make:
 
     make -f libjs.make -j$(nproc)
+    
+Or for debug:
+
+    make -f libjs.make debug=yes -j$(nproc)
