@@ -595,15 +595,15 @@ StackDepth(JSScript *script)
  * imacro body, so we use cx->runtime common atoms instead of script_'s atoms.
  * This macro uses cx from its callers' environments in the pc-in-imacro case.
  */
-#define JS_GET_SCRIPT_ATOM(script_, pc_, index, atom)                         \
-    JS_BEGIN_MACRO                                                            \
-        if ((pc_) < (script_)->code ||                                        \
-            (script_)->code + (script_)->length <= (pc_)) {                   \
-            JS_ASSERT((size_t)(index) < js_common_atom_count);                \
-            (atom) = COMMON_ATOMS_START(&cx->runtime->atomState)[index];      \
-        } else {                                                              \
-            (atom) = script_->getAtom(index);                                 \
-        }                                                                     \
+#define JS_GET_SCRIPT_ATOM(script_, pc_, index, atom)                                   \
+    JS_BEGIN_MACRO                                                                      \
+        if (((jsbytecode *)(pc_)) < (script_)->code ||                                  \
+            (script_)->code + (script_)->length <= ((jsbytecode *)(pc_))) {             \
+            JS_ASSERT((size_t)(index) < js_common_atom_count);                          \
+            (atom) = COMMON_ATOMS_START(&cx->runtime->atomState)[index];                \
+        } else {                                                                        \
+            (atom) = script_->getAtom(index);                                           \
+        }                                                                               \
     JS_END_MACRO
 
 extern JS_FRIEND_DATA(js::Class) js_ScriptClass;

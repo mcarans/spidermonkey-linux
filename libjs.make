@@ -17,8 +17,8 @@ LIBJS_CONFIG_FLAGS               += --disable-tests
 # Make this the default so snapshot builds work
 LIBJS_CONFIG_FLAGS               += --enable-trace-jscalls
 
-LIBJS_CFLAGS                = -std=gnu89
-LIBJS_CXXFLAGS              = -Wno-error=narrowing
+LIBJS_CFLAGS                     = -std=gnu89
+LIBJS_CXXFLAGS                   = -Wno-error=narrowing
 ifeq ($(debug),yes)
     LIBJS_BUILD_DIR              = $(LIBJS_SRC_DIR)/build-debug
     LIBJS_CONFIG_FLAGS           += --enable-debug
